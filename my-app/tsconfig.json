@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "experimentalDecorators": true,
-    "experimentalDecorators": true,
     "target": "es5",
     "lib": [
       "dom",
@@ -24,7 +21,8 @@
     "jsx": "react-jsx",
     "noImplicitAny": true,
     "noEmitOnError": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "useDefineForClassFields": true
   },
   "include": [
     "src"

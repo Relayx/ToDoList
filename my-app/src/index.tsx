@@ -5,6 +5,8 @@ import App from './App';
 import ObservableList from './ObservableList';
 import Task from './Task';
 
+import TestComponent from './components/TestComponent';
+
 const tasksInfo: Task[] = [
   {
     task: 'Сделать что-то',
@@ -31,8 +33,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const task = new Task('Я тасочка', false);
+
 root.render(
   <React.StrictMode>
+    <TestComponent task={task} />
     <App list={observableList} />
   </React.StrictMode>
 );

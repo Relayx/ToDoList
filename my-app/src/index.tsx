@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import App from './App';
 import ObservableList from './ObservableList';
 import Task from './Task';

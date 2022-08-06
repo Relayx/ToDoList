@@ -37,7 +37,7 @@
         "@typescript-eslint/no-shadow": ["error"],
         "react/prop-types": "off",
         "comma-dangle": ["error", "never"],
-        "linebreak-style": "off"
+        "linebreak-style": "off" 
     },
     "settings": {
         "import/resolver": {

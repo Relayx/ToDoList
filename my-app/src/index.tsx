@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { render } from 'react-dom';
 import App from './App';
 import ObservableList from './ObservableList';
 import Task from './Task';
@@ -28,15 +28,15 @@ const observableList = new ObservableList(tasksInfo);
 observableList.tasks[0].isFinished = true;
 observableList.addTask('New task');
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = document.getElementById('root') as HTMLElement;
 
 const task = new Task('Я тасочка', false);
 
-root.render(
+const mainJsx = (
   <React.StrictMode>
     <TestComponent task={task} />
     <App list={observableList} />
   </React.StrictMode>
 );
+
+render(mainJsx, root);

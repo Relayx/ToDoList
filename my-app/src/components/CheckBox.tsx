@@ -16,7 +16,6 @@ export default class CheckBox extends React.Component<CheckBoxProps> {
   changeTaskState = () => {
     const { task } = this.props;
     task.isFinished = !task.isFinished;
-    task.task = 'dawdaw';
   };
 
   render(): React.ReactNode {

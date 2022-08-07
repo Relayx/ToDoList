@@ -9,7 +9,6 @@ import '../styles/Font.css';
 
 export interface ListItemProps {
   task: Task;
-  update: (task: Task) => void;
   // eslint-disable-next-line react/no-unused-prop-types
   key: string
 }
@@ -17,10 +16,10 @@ export interface ListItemProps {
 @observer
 export default class ListItem extends React.Component<ListItemProps> {
   render(): React.ReactNode {
-    const { task, update } = this.props;
+    const { task } = this.props;
     return (
       <div className="item">
-        <CheckBox task={task} update={update} />
+        <CheckBox task={task} />
         <span className={task.isFinished ? 'fontFinished' : 'fontUnfinished'}>
           {task.task}
         </span>

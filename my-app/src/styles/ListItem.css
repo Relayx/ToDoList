@@ -3,4 +3,23 @@
   height: 40px;
   background-color: rgb(72, 107, 172);
   text-align: center;
+  cursor: grab;
+}
+
+/* когда-нибудь имплементирую */
+.itemDragOver {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 150px;
+  height: 100px;
+  border: none;
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  -webkit-box-shadow: 0 1px 18px 3px rgba(0,150,255,0.91) inset;
+  box-shadow: 0 1px 18px 3px rgba(0,150,255,0.91) inset;
+  cursor: move;
 }

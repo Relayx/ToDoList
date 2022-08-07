@@ -10,17 +10,53 @@ import '../styles/Font.css';
 export interface ListProps {
   tasks: Task[];
   label: string;
-  update: (task: Task) => void;
 }
 
 @observer
 export default class List extends React.Component<ListProps> {
+  lastDraggedItem: Task | undefined;
+
+  dragStartHandler = (e: React.DragEvent<HTMLDivElement>, item: Task) => {
+    this.lastDraggedItem = item;
+  };
+
+  dropHandler = (e: React.DragEvent<HTMLDivElement>, item: Task) => {
+    e.preventDefault();
+    if (typeof this.lastDraggedItem === 'undefined') {
+      return;
+    }
+    if ((item.key === this.lastDraggedItem.key)) {
+      return;
+    }
+    const temp = item.task;
+    // eslint-disable-next-line no-param-reassign
+    item.task = this.lastDraggedItem.task;
+    this.lastDraggedItem.task = temp;
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+  dragOverHandler(e: React.DragEvent<HTMLDivElement>) {
+    e.preventDefault();
+  }
+
   render(): React.ReactNode {
     const content: JSX.Element[] = [];
-    const { tasks, label, update } = this.props;
+    const { tasks, label } = this.props;
     tasks.forEach(
       (task) => content.push(
-        <ListItem task={task} update={update} key={task.key} />
+        <div
+          key={task.key}
+          draggable
+          onDragStart={(e: React.DragEvent<HTMLDivElement>) => {
+            this.dragStartHandler(e, task);
+          }}
+          onDragOver={this.dragOverHandler}
+          onDrop={(e: React.DragEvent<HTMLDivElement>) => {
+            this.dropHandler(e, task);
+          }}
+        >
+          <ListItem task={task} key={task.key} />
+        </div>
       )
     );
 

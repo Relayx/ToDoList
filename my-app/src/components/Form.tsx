@@ -1,18 +1,39 @@
 import { observer } from 'mobx-react';
-import React, { SyntheticEvent } from 'react';
+import React from 'react';
+import ObservableList from '../ObservableList';
+
+import '../styles/Form.css';
 
 export interface FormProps {
-  addItem: (e: SyntheticEvent) => void;
-  handleInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  list: ObservableList
 }
 
 @observer
 export default class Form extends React.Component<FormProps> {
+  current: string;
+
+  constructor(props: FormProps) {
+    super(props);
+    this.current = '';
+  }
+
+  handleInput = (e: React.FormEvent<HTMLInputElement>) => {
+    this.current = e.currentTarget.value;
+  };
+
+  addItem = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    if (this.current === '') {
+      return;
+    }
+    const { list } = this.props;
+    list.addTask(this.current);
+  };
+
   render(): React.ReactNode {
-    const { addItem, handleInput } = this.props;
     return (
-      <form onSubmit={addItem}>
-        <input type="text" onChange={handleInput} />
+      <form onSubmit={this.addItem} className="form">
+        <input type="text" onChange={this.handleInput} />
         <button type="submit">Добавить</button>
       </form>
     );

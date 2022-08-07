@@ -7,8 +7,6 @@ import '../styles/CheckBox.css';
 
 export interface CheckBoxProps {
   task: Task
-  // eslint-disable-next-line react/no-unused-prop-types
-  update: (task: Task) => void;
 }
 
 @observer

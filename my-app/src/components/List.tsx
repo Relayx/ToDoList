@@ -31,9 +31,8 @@ export default class List extends React.Component<ListProps> {
       return;
     }
     const temp = item.task;
-    // eslint-disable-next-line no-param-reassign
-    item.task = this.lastDraggedItem.task;
-    this.lastDraggedItem.task = temp;
+    item.changeTask(this.lastDraggedItem.task);
+    this.lastDraggedItem.changeTask(temp);
   };
 
   // eslint-disable-next-line class-methods-use-this

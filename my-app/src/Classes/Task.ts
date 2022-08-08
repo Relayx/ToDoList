@@ -33,4 +33,10 @@ export default class Task {
     this.isFinished = !this.isFinished;
     localStorage.setItem(this.key, JSON.stringify(this));
   };
+
+  changeTask = (value: string) : void => {
+    localStorage.removeItem(this.key);
+    this.task = value;
+    localStorage.setItem(this.key, JSON.stringify(this));
+  };
 }

@@ -3,6 +3,10 @@
   width: 100%;
   align-items: center;
   justify-items: center;
+  border-bottom-width: 20px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(72, 111, 185);
+  margin-top: 20px;
 }
 
 /* Когда-нибудь имплеминтирую */

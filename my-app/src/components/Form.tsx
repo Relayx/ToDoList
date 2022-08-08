@@ -3,6 +3,7 @@ import React from 'react';
 import ObservableList from '../ObservableList';
 
 import '../styles/Form.css';
+import '../styles/Font.css';
 
 export interface FormProps {
   list: ObservableList
@@ -33,8 +34,12 @@ export default class Form extends React.Component<FormProps> {
   render(): React.ReactNode {
     return (
       <form onSubmit={this.addItem} className="form">
-        <input type="text" onChange={this.handleInput} />
-        <button type="submit">Добавить</button>
+        <input
+          type="text"
+          onChange={this.handleInput}
+          className="textField fontBase"
+        />
+        <button type="submit" className="button fontBase">Добавить</button>
       </form>
     );
   }

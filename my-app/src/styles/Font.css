@@ -1,17 +1,11 @@
-.fontUnfinished {
+.fontBase {
   font-family: cursive;
   color: rgb(235, 246, 255);
   font-size: 25px;
   display: flex;
-  margin: 10px;
 }
 
-.fontFinished {
-  font-family: cursive;
-  color: rgb(235, 246, 255);
-  font-size: 25px;
-  display: flex;
-  margin: 10px;
+.finished {
   text-decoration: line-through;
 }
 

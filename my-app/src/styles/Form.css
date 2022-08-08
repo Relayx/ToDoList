@@ -2,7 +2,30 @@
   background-color: rgb(134, 175, 252);
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   display: flex;
   width: 100%;
-  height: 10%;
+  height: 15%;
+  border-bottom-width: 20px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(89, 136, 223);
+}
+
+.textField { 
+  background-color:rgb(72, 107, 172);
+  border: 0px;
+  width: 90%;
+  box-sizing: border-box;
+  padding-top:5px;
+	padding-bottom:5px;
+}
+
+.button {
+	background-color:rgb(106, 148, 228);
+	border: 0px;
+	padding-top:5px;
+	padding-bottom:5px;
+	width:90%;
+  align-items: center;
+  justify-content: center;
 }

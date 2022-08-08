@@ -1,4 +1,4 @@
-import { observable, autorun } from 'mobx';
+import { observable } from 'mobx';
 
 import Task from './Task';
 
@@ -8,7 +8,6 @@ export default class ObservableList {
 
   constructor(startList: Task[]) {
     this.tasks = startList;
-    autorun(() => console.log(this.tasks.map((task) => task.task).join(', ')));
   }
 
   addTask(task: string) : void {
@@ -17,5 +16,9 @@ export default class ObservableList {
 
   getTasks(isFinished: boolean) : Task[] {
     return this.tasks.filter((task) => task.isFinished === isFinished);
+  }
+
+  removeTask(key: string) : void {
+    this.tasks = this.tasks.filter((task) => task.key !== key);
   }
 }

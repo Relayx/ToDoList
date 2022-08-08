@@ -1,9 +1,11 @@
 .item {
+  display: flex;
+  flex-direction: row;
   margin: 10px;
   height: 40px;
   background-color: rgb(72, 107, 172);
-  text-align: center;
   cursor: grab;
+  padding-left: 10px;
 }
 
 /* когда-нибудь имплементирую */

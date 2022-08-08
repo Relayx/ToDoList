@@ -3,11 +3,13 @@ import { observer } from 'mobx-react';
 
 import ListItem from './ListItem';
 import Task from '../Task';
+import ObservableList from '../ObservableList';
 
 import '../styles/List.css';
 import '../styles/Font.css';
 
 export interface ListProps {
+  list: ObservableList;
   tasks: Task[];
   label: string;
 }
@@ -41,7 +43,7 @@ export default class List extends React.Component<ListProps> {
 
   render(): React.ReactNode {
     const content: JSX.Element[] = [];
-    const { tasks, label } = this.props;
+    const { tasks, label, list } = this.props;
     tasks.forEach(
       (task) => content.push(
         <div
@@ -55,7 +57,7 @@ export default class List extends React.Component<ListProps> {
             this.dropHandler(e, task);
           }}
         >
-          <ListItem task={task} key={task.key} />
+          <ListItem task={task} key={task.key} list={list} />
         </div>
       )
     );

@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react';
 
 import List from './components/List';
@@ -22,10 +22,12 @@ class App extends React.Component<AppProps> {
         <List
           tasks={list.getTasks(false)}
           label="Задачи"
+          list={list}
         />
         <List
           tasks={list.getTasks(true)}
           label="Выполненные задачи"
+          list={list}
         />
       </div>
     );

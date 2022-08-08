@@ -1,4 +1,15 @@
 .deleteButton {
-  justify-content: flex-end;
+  justify-self: flex-end;
   margin-left: auto;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-width: 0px;
+}
+
+.ico {
+  width: 30px;
+  height: 30px;
 }

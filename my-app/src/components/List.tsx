@@ -2,8 +2,8 @@ import React from 'react';
 import { observer } from 'mobx-react';
 
 import ListItem from './ListItem';
-import Task from '../Task';
-import ObservableList from '../ObservableList';
+import Task from '../Classes/Task';
+import ObservableList from '../Classes/ObservableList';
 
 import '../styles/List.css';
 import '../styles/Font.css';

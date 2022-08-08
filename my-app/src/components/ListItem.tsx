@@ -1,8 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-import Task from '../Task';
-import ObservableList from '../ObservableList';
+import Task from '../Classes/Task';
+import ObservableList from '../Classes/ObservableList';
 import CheckBox from './CheckBox';
 import DeleteButton from './DeleteButton';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-import ObservableList from '../ObservableList';
-import Task from '../Task';
+import ObservableList from '../Classes/ObservableList';
+import Task from '../Classes/Task';
 
 import '../styles/DeleteButton.css';
 
@@ -25,7 +25,7 @@ export default class DeleteButton extends React.Component<ListItemProps> {
         className="deleteButton"
         onClick={this.clickHandler}
       >
-        E
+        <img src="trash.png" alt="" className="ico" />
       </button>
     );
   }

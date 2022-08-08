@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 
 import List from './components/List';
 import Form from './components/Form';
-import ObservableList from './ObservableList';
+import ObservableList from './Classes/ObservableList';
 
 import './styles/App.css';
 

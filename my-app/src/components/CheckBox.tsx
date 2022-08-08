@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react';
 import React from 'react';
 
-import Task from '../Task';
+import Task from '../Classes/Task';
 
 import '../styles/CheckBox.css';
 
@@ -13,7 +13,7 @@ export interface CheckBoxProps {
 export default class CheckBox extends React.Component<CheckBoxProps> {
   changeTaskState = () => {
     const { task } = this.props;
-    task.isFinished = !task.isFinished;
+    task.changeState();
   };
 
   render(): React.ReactNode {

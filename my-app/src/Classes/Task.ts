@@ -27,4 +27,10 @@ export default class Task {
     this.isFinished = isFinished;
     this.key = generateKey(KEY_SIZE);
   }
+
+  changeState = () : void => {
+    localStorage.removeItem(this.key);
+    this.isFinished = !this.isFinished;
+    localStorage.setItem(this.key, JSON.stringify(this));
+  };
 }

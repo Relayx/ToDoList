@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import React from 'react';
-import ObservableList from '../ObservableList';
+import ObservableList from '../Classes/ObservableList';
 
 import '../styles/Form.css';
 import '../styles/Font.css';

@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { autorun, observable } from 'mobx';
 
 import Task from './Task';
 
@@ -16,12 +16,18 @@ export default class ObservableList {
         this.addTask(parsed.task, parsed.isFinished);
       }
     });
+    autorun(this.updateList);
   }
 
+  updateList = () => {
+    localStorage.clear();
+    this.tasks.forEach((task) => {
+      localStorage.setItem(task.key, JSON.stringify(task));
+    });
+  };
+
   addTask(task: string, isFinished = false) : void {
-    const newTask = new Task(task, isFinished);
-    this.tasks.push(newTask);
-    localStorage.setItem(newTask.key, JSON.stringify(newTask));
+    this.tasks.push(new Task(task, isFinished));
   }
 
   getTasks(isFinished: boolean) : Task[] {
@@ -30,6 +36,5 @@ export default class ObservableList {
 
   removeTask(key: string) : void {
     this.tasks = this.tasks.filter((task) => task.key !== key);
-    localStorage.removeItem(key);
   }
 }

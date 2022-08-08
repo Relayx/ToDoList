@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { autorun, observable } from 'mobx';
 
 const KEY_SIZE = 8;
 
@@ -26,17 +26,19 @@ export default class Task {
     this.task = task;
     this.isFinished = isFinished;
     this.key = generateKey(KEY_SIZE);
+    autorun(this.updateStorage);
   }
 
-  changeState = () : void => {
+  updateStorage = () => {
     localStorage.removeItem(this.key);
-    this.isFinished = !this.isFinished;
     localStorage.setItem(this.key, JSON.stringify(this));
   };
 
+  changeState = () : void => {
+    this.isFinished = !this.isFinished;
+  };
+
   changeTask = (value: string) : void => {
-    localStorage.removeItem(this.key);
     this.task = value;
-    localStorage.setItem(this.key, JSON.stringify(this));
   };
 }
